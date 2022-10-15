@@ -7,6 +7,7 @@ import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCi
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi';
 import LineChart from './LineChart';
+import Loader from './Loader';
 
 const { Title, Text} = Typography;
 const { Option } = Select;
@@ -18,7 +19,7 @@ const CryptoDetails = () => {
   const { data : coinHistory } = useGetCryptoHistoryQuery({coinId, timePeriod});
   const cryptoDetails = data?.data?.coin;
 
-  if(isFetching) return 'Loading...';
+  if (isFetching) return <Loader />;
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
@@ -66,7 +67,7 @@ const CryptoDetails = () => {
         {/* Line Chart */}
         <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
 
-        <Col className="stats-containr">
+        <Col className="stats-container">
               <Col className="coin-value-statistics">
                   <Col className="coin-value-statistics-heading">
                       <Title level={3} className='coin-details-heading'>

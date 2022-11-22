@@ -41,6 +41,10 @@ const App = () => {
                 {/* <Link to="/exchanges">Exchanges</Link> */}
                 <Link to="/news">News</Link>
                 <Link to="/coinkart">Coinkart</Link>
+                {/* <Link>
+                <a href="mailto:aduet.dabral@gmail.com">Contact Us</a>
+                </Link> */}
+                
             </Space>
         </div>
         </div>
